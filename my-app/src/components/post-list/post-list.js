@@ -10,12 +10,12 @@ const PostList = (props) => {
     let postListArr = props.data.map(el => {
         const {key, ...itemProps} = el
     return (       
-    <li key={key} className='list-group-item'>
+    <li key={el.id} className='list-group-item'>
        <PostListItem 
        {...itemProps} 
-       onDelete={() => {
-           props.onDelete(el.id)
-       }}/>
+       onDelete={() => props.onDelete(el.id)}
+       onToggleImportant={() => props.onToggleImportant(el.id)}
+       onToggleLiked={() => props.onToggleLiked(el.id)}/>
     </li>
        )
     })
